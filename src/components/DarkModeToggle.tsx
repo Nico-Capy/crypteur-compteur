@@ -19,7 +19,7 @@ const DarkModeToggle: React.FC = () => {
 
   return (
     <button
-      className="fixed top-6 right-6 flex items-center justify-center w-10 h-10 bg-transparent dark:bg-black text-gray-700 dark:text-white rounded-full"
+      className="fixed top-6 right-6 flex items-center justify-center w-10 h-10 bg-sky-400 dark:bg-indigo-950 text-gray-700 dark:text-white rounded-full transition-all duration-600"
       onClick={handleDarkModeToggle}
     >
       {isDarkMode ? <FaSun /> : <FaMoon />}
