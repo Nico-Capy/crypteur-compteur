@@ -1,22 +1,24 @@
-import './App.css'
-import DarkModeToggle from '../src/components/DarkModeToggle';
-import Footer from './components/footer';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from './pages/home';
 import Cesar from './pages/cesar';
-import Compteur from './pages/compteur';
+import Footer from '../src/components/footer';
+import DarkModeToggle from "./components/DarkModeToggle";
+import Compteur from "./pages/compteur";
 
 function App() {
-
   return (
     <>
-    <h1 className='m-3 p-3 text-xl font-mono text-sky-500'>
-      Crypto Compteur de Texte
-    </h1>
     <DarkModeToggle />
-      <Cesar/>
-   // <Compteur/>
-      <Footer/>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/cesar" element={<Cesar />} />
+        <Route path="/compteur" element={<Compteur />} />
+      </Routes>
+    </Router>
+    <Footer />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -1,8 +1,10 @@
 import { SetStateAction, useState } from "react";
+import { Link } from 'react-router-dom';
 
 function Cesar() {
   const [inputText, setInputText] = useState("");
   const [encryptedText, setEncryptedText] = useState("");
+  const [resultText, setResultText] = useState(""); // Add resultText state
 
   const handleClick = () => {
     const shift = 3; // Le décalage utilisé pour le chiffre de César
@@ -29,21 +31,35 @@ function Cesar() {
 
     const encryptedText = encryptText(inputText);
     setEncryptedText(encryptedText);
+    setResultText(encryptedText); // Set the resultText
   };
 
   const handleChange = (event: { target: { value: SetStateAction<string> } }) => {
     setInputText(event.target.value);
   };
 
+  const handleCopy = () => {
+    navigator.clipboard.writeText(resultText);
+  };
+
   const handleClear = () => {
     setInputText("");
     setEncryptedText("");
+    setResultText(""); // Clear the resultText
   };
 
   return (
     <>
-      <div className="flex flex-col justify-center items-center space-y-6">
-        <div className="w-full max-w-md mx-4 h-fit">
+      <div className="flex flex-col justify-center items-center space-y-6 h-screen">
+        <div className='mt-5 ml-2 self-start'>
+          <Link to="/">
+            <button className="font-mono shadow-none hover:shadow-lg dark:shadow-white bg-transparent dark:hover:underline text-indigo-700 dark:text-white py-3 px-6 transition-all duration-600">
+              ← Retour
+            </button>
+          </Link>
+        </div>
+        <h1 className="font-mono text-indigo-700 dark:text-white text-2xl m-6">Crypteur</h1>
+        <div className="w-11/12 max-w-md mx-auto">
           <label
             className="font-mono text-indigo-700 dark:text-white bg-white dark:bg-sky-950 border border-indigo-600 ml-3 px-6 py-2 mb-3 transform -translate-y-3 pointer-events-none transition-all duration-600"
             htmlFor="text-input"
@@ -58,16 +74,12 @@ function Cesar() {
             onChange={handleChange}
           />
         </div>
-        <br/>
-        <br/>
-        <button className="font-mono shadow-sm hover:shadow-md dark:shadow-white bg-sky-600 dark:bg-sky-950 hover:bg-sky-700 dark:hover:bg-sky-900 text-white py-3 px-6 transition-all duration-600" onClick={handleClick}>
+        <button className="font-mono shadow-sm hover:shadow-md dark:shadow-white bg-indigo-600 dark:bg-indigo-950 hover:bg-indigo-700 dark:hover:bg-indigo-900 text-white my-6 py-3 px-6 transition-all duration-600" onClick={handleClick}>
           Crypter
         </button>
-        <br/>
-        <br/>
-        <div className="w-full max-w-md mx-4 font-mono">
+        <div className="w-11/12 max-w-md mx-auto">
           <label
-            className="text-indigo-700 dark:text-white bg-white dark:bg-sky-950 border border-indigo-600 ml-3 px-6 py-2 mb-3 transform -translate-y-3 pointer-events-none transition-all duration-600"
+            className="font-mono text-indigo-700 dark:text-white bg-white dark:bg-sky-950 border border-indigo-600 ml-3 px-6 py-2 mb-3 transform -translate-y-3 pointer-events-none transition-all duration-600"
             htmlFor="encrypted-text"
           >
             Texte crypté
@@ -76,18 +88,19 @@ function Cesar() {
             id="encrypted-text"
             className="font-mono w-full h-40 shadow-xl dark:shadow-md dark:shadow-white px-6 py-4 dark:bg-sky-950 border border-indigo-600 focus:ring-3 focus:ring-blue-600 focus:border-blue-300 resize-none transition-all duration-600"
             value={encryptedText}
+            placeholder="Résultat"
             readOnly
           />
         </div>
-        <br/>
+        <button className="font-mono shadow-sm hover:shadow-md dark:shadow-white bg-indigo-600 dark:bg-indigo-950 hover:bg-sky-700 dark:hover:bg-sky-900 text-white py-2 px-6 m-6 transition-all duration-600" onClick={handleCopy}>
+          Copier le résultat
+        </button>
         <button className="font-mono shadow-sm hover:shadow-md dark:shadow-white bg-red-600 dark:bg-red-900 hover:bg-red-700 dark:hover:bg-red-800 text-white py-2 px-6 m-6 transition-all duration-600" onClick={handleClear}>
           Effacer le texte
         </button>
-        <br/>
-        <br/>
       </div>
     </>
-  );
+  );  
 }
 
 export default Cesar;
