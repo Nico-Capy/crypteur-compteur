@@ -3,7 +3,7 @@
 @import 'tailwindcss/utilities';
 
 .dark {
-  background-color: black;
+  background-color: rgb(29, 27, 72);
   color: white;
 }
 

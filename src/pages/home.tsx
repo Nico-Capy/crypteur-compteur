@@ -4,8 +4,8 @@ import '../assets/fonts.css';
 
 function Home() {
   return (
-    <div className="flex flex-col items-center justify-start mt-6 min-h-screen px-4 md:px-0">
-      <h1 className="text-4xl font-bold mb-4 text-center mt-10 md:mt-16">
+    <div className="flex flex-col items-center justify-start mt-6 h-full px-4 md:px-0" style={{ fontFamily: 'American Typewriter' }}>
+      <h1 className="text-4xl p-6 font-bold mb-4 text-center mt-10 md:mt-16 font-normal tracking-wide text-indigo-700 dark:text-white dark:bg-indigo-900 dark:shadow-xl">
         Crypteur
         <br/>
         —
