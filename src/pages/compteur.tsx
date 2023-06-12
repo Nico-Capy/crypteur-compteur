@@ -1,5 +1,6 @@
 import { useState, ChangeEvent } from 'react';
 import { Link } from 'react-router-dom';
+import '../assets/fonts.css';
 
 function Compteur() {
   const [inputText, setInputText] = useState("");
@@ -47,7 +48,7 @@ function Compteur() {
 
   return (
     <>
-      <div className="flex flex-col justify-center items-center space-y-6 h-screen">
+      <div className="flex flex-col justify-center items-center space-y-6 h-fit">
         <div className='mt-5 ml-2 self-start'>
           <Link to="/">
             <button className="font-mono shadow-none hover:shadow-lg dark:shadow-white bg-transparent dark:hover:underline text-indigo-700 dark:text-white py-3 px-6 transition-all duration-600">
