@@ -10,7 +10,7 @@ function Compteur() {
   const alphabetsUppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   const digits = "0123456789";
   const punctuation = ".,;:?!'\"`~@#$%^&*()-—=_+[]{}\\|<>/";
-  const specialChars = "àáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿ©";
+  const specialChars = "àáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿ©œ";
   const space = " ";
   const lineBreak = "\n";
   const diacriticalMarks = "´`¨ˆ~";
